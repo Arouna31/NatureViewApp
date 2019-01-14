@@ -9,6 +9,8 @@ import { HomePage } from "../pages/home/home";
 import { SingleViewPage } from "../pages/single-view/single-view";
 import { NewViewPage } from "../pages/new-view/new-view";
 import { SetCoordinatesPage } from "../pages/set-coordinates/set-coordinates";
+import { NatureViewService } from "../services/nature-view.service";
+import { FormsModule } from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -18,7 +20,7 @@ import { SetCoordinatesPage } from "../pages/set-coordinates/set-coordinates";
     NewViewPage,
     SetCoordinatesPage
   ],
-  imports: [BrowserModule, IonicModule.forRoot(MyApp)],
+  imports: [BrowserModule, FormsModule, IonicModule.forRoot(MyApp)],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
@@ -30,6 +32,7 @@ import { SetCoordinatesPage } from "../pages/set-coordinates/set-coordinates";
   providers: [
     StatusBar,
     SplashScreen,
+    NatureViewService,
     { provide: ErrorHandler, useClass: IonicErrorHandler }
   ]
 })

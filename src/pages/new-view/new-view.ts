@@ -1,25 +1,27 @@
-import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { Component, OnInit } from "@angular/core";
+import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 
-/**
- * Generated class for the NewViewPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
-
-@IonicPage()
 @Component({
-  selector: 'page-new-view',
-  templateUrl: 'new-view.html',
+  selector: "page-new-view",
+  templateUrl: "new-view.html"
 })
-export class NewViewPage {
+export class NewViewPage implements OnInit {
+  natureViewForm: FormGroup;
+  latitude: number;
+  longitude: number;
+  imagePath: string;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(private formBuilder: FormBuilder) {}
+
+  ngOnInit() {
+    this.initForm();
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad NewViewPage');
+  initForm() {
+    this.natureViewForm = this.formBuilder.group({
+      name: ["", Validators.required],
+      date: [new Date().toISOString(), Validators.required],
+      description: [""]
+    });
   }
-
 }

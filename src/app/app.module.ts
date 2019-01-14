@@ -1,30 +1,36 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { ErrorHandler, NgModule } from '@angular/core';
-import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
-import { SplashScreen } from '@ionic-native/splash-screen';
-import { StatusBar } from '@ionic-native/status-bar';
+import { BrowserModule } from "@angular/platform-browser";
+import { ErrorHandler, NgModule } from "@angular/core";
+import { IonicApp, IonicErrorHandler, IonicModule } from "ionic-angular";
+import { SplashScreen } from "@ionic-native/splash-screen";
+import { StatusBar } from "@ionic-native/status-bar";
 
-import { MyApp } from './app.component';
-import { HomePage } from '../pages/home/home';
+import { MyApp } from "./app.component";
+import { HomePage } from "../pages/home/home";
+import { SingleViewPage } from "../pages/single-view/single-view";
+import { NewViewPage } from "../pages/new-view/new-view";
+import { SetCoordinatesPage } from "../pages/set-coordinates/set-coordinates";
 
 @NgModule({
   declarations: [
     MyApp,
-    HomePage
+    HomePage,
+    SingleViewPage,
+    NewViewPage,
+    SetCoordinatesPage
   ],
-  imports: [
-    BrowserModule,
-    IonicModule.forRoot(MyApp)
-  ],
+  imports: [BrowserModule, IonicModule.forRoot(MyApp)],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    HomePage
+    HomePage,
+    SingleViewPage,
+    NewViewPage,
+    SetCoordinatesPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    { provide: ErrorHandler, useClass: IonicErrorHandler }
   ]
 })
 export class AppModule {}

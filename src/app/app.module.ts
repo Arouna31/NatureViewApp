@@ -11,6 +11,8 @@ import { NewViewPage } from "../pages/new-view/new-view";
 import { SetCoordinatesPage } from "../pages/set-coordinates/set-coordinates";
 import { NatureViewService } from "../services/nature-view.service";
 import { FormsModule } from "@angular/forms";
+import { AgmCoreModule } from "@agm/core";
+import { Geolocation } from "@ionic-native/geolocation";
 
 @NgModule({
   declarations: [
@@ -20,7 +22,12 @@ import { FormsModule } from "@angular/forms";
     NewViewPage,
     SetCoordinatesPage
   ],
-  imports: [BrowserModule, FormsModule, IonicModule.forRoot(MyApp)],
+  imports: [
+    BrowserModule,
+    FormsModule,
+    IonicModule.forRoot(MyApp),
+    AgmCoreModule.forRoot({ apiKey: "AIzaSyDtomsm7eXWYIgxXUVzzuURGRJYWxwTbb8" })
+  ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
@@ -33,6 +40,7 @@ import { FormsModule } from "@angular/forms";
     StatusBar,
     SplashScreen,
     NatureViewService,
+    Geolocation,
     { provide: ErrorHandler, useClass: IonicErrorHandler }
   ]
 })

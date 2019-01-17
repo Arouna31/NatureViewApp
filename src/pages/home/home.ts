@@ -26,7 +26,7 @@ export class HomePage implements OnInit, OnDestroy {
         this.natureViewList = list;
       }
     );
-    this.natureViewService.emitNatureViewList();
+    this.natureViewService.fetchList();
   }
 
   ngOnDestroy(): void {
